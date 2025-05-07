@@ -15,7 +15,7 @@ connectForm.addEventListener("submit", (connect) => {
   const connectMail = document.getElementById("loginConnect").value;
   const connectPwd = document.getElementById("passwordConnect").value;
 
-  const localUser = JSON.parse(localStorage.getItem(""));
+
 
   let userExists = false;
 

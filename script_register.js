@@ -44,19 +44,22 @@ btnValid.addEventListener("click", (event) => {
       "Votre mot de passe ne correspond pas au premier mot de passe.";
     formValid = false;
   }
-// le formulaire est valide
+  // le formulaire est valide
   if (formValid) {
     console.log("Formulaire valide !");
 
-// Je verifie si le nouvel utilisateur existe deja 
-// https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Loops_and_iteration#linstruction_for
+    // Je verifie si le nouvel utilisateur existe deja
+    // https://developer.mozilla.org/fr/docs/Web/JavaScript/Guide/Loops_and_iteration#linstruction_for
     let userExists = false;
     for (let i = 0; i < localStorage.length; i++) {
       const key = localStorage.key(i);
       if (key.startsWith("user")) {
         const userData = JSON.parse(localStorage.getItem(key));
 
-        if (userData.email === data.get("email") || userData.name === data.get("username")) {
+        if (
+          userData.email === data.get("email") ||
+          userData.name === data.get("username")
+        ) {
           userExists = true;
           break;
         }
@@ -72,12 +75,19 @@ btnValid.addEventListener("click", (event) => {
         password: data.get("password"),
         email: data.get("email"),
       };
+
+      const userConnected = {
+        nameConnected: data.get("username"),
+        emailConnected: data.get("email"),
+      };
       const useNumber = localStorage.length;
       const key = "user" + (useNumber + 1);
+
       localStorage.setItem(key, JSON.stringify(userData));
+      localStorage.setItem(key, JSON.stringify(userConnected));
       alert("Votre compte a été créé avec succès !");
       console.log(JSON.parse(localStorage.getItem(key)));
-      window.location.href="/login.html"
+      window.location.href = "/login.html";
     }
 
     formRegister.reset();
@@ -85,7 +95,8 @@ btnValid.addEventListener("click", (event) => {
 });
 
 console.log(localStorage.length);
-
+export userConnected
+//faire une session storage pour recuperer les element 
 //------------------------------------------
 
 //------------------------------------------
