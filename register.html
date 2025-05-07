@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memory - Register</title>
+    <link rel="stylesheet" href="style_register.css" />
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header class="header">
+      <nav class="header__nav">
+        <ul class="header__nav_ul">
+          <li class="header__nav_ul_li">
+            <a class="header__nav_ul_li_a" href="index.html">Accueil</a>
+          </li>
+          <li class="header__nav_ul_li">
+            <a class="header__nav_ul_li_a" href="register.html">S'inscrire</a>
+          </li>
+          <li class="header__nav_ul_li">
+            <a class="header__nav_ul_li_a" href="login.html">Se connecter</a>
+          </li>
+          <li class="header__nav_ul_li">
+            <a class="header__nav_ul_li_a" href="profil.html">Profil</a>
+          </li>
+          <li class="header__nav_ul_li">
+            <a class="header__nav_ul_li_a" href="play.html">Jouer</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="form-container">
+        <h1>Inscrivez-vous</h1>
+        <form id="formRegister">
+          <div>
+            <label for="username">Nom d'utilisateur :</label>
+            <input type="text" id="username" name="username" required />
+            <span  class="errorall" id="errorUsername"></span>
+          </div>
+
+          <div>
+            <label for="email">Entrez votre mail :</label>
+            <input type="email" id="email" name="email" required />
+            <span  class="errorall" id="errorEmail"></span>
+          </div>
+          <div>
+            <label for="password">Mot de passe :</label>
+            <input type="password" id="password" name="password" required />
+            <span  class="errorall" id="errorPassword"></span>
+            <progress id="passwordStrengthBar" value="0" max="100"></progress>
+          </div>
+
+          <div>
+            <label for="confirm-password">Confirmer votre mot de passe :</label>
+            <input
+              type="password"
+              id="confirm-password"
+              name="confirm-password"
+              required
+            />
+            <span class="errorall" id="errorConfirm-password" ></span>
+          </div>
+
+          <div style="text-align: center">
+            <button type="submit" id="btnValid" class="submit">
+              Création du compte
+            </button>
+            <button type="reset" class="cancel">Annuler</button>
+          </div>
+        </form>
+      </div>
+    </main>
+    <script type="module" src="script_register.js"></script>
+  </body>
+</html>

@@ -1,0 +1,4 @@
+const insertErrorMessage = (inputType, message) => {
+
+  };
+  
