@@ -1,43 +1,38 @@
-import {
-  checkUser,
-  checkEmail,
-  checkPwd,
-  checkPwd2,
-} from "./modules/validation.js";
-
-// faire un for pour comparer les données de l'utilisateur qui essaye de se connecter et les données dans le local storage
-
+// Récupère le formulaire de connexion et le message d'information
 const connectForm = document.getElementById("formConnect");
 const connectMessage = document.getElementById("messageConnect");
 
+// Écoute l'envoi du formulaire
 connectForm.addEventListener("submit", (connect) => {
-  connect.preventDefault();
+  connect.preventDefault(); // Empêche le rechargement de la page
+
+  // Récupère les valeurs saisies par l'utilisateur
   const connectMail = document.getElementById("loginConnect").value;
   const connectPwd = document.getElementById("passwordConnect").value;
 
+  let userExists = false; // Indique si un utilisateur correspondant est trouvé
 
-
-  let userExists = false;
-
+  // Parcours toutes les entrées du localStorage
   for (let i = 0; i < localStorage.length; i++) {
-    const key = localStorage.key(i);
-    if (key.startsWith("user")) {
-      const userData = JSON.parse(localStorage.getItem(key));
+    const key = localStorage.key(i); // Récupère la clé
+    if (key.startsWith("user")) { // Ne prend en compte que les clés qui commencent par "user"
+      const userData = JSON.parse(localStorage.getItem(key)); // Récupère les données utilisateur
 
+      // Vérifie si l'email et le mot de passe correspondent
       if (userData.email === connectMail && userData.password === connectPwd) {
         userExists = true;
-        break;
+        break; // Arrête la boucle si un utilisateur est trouvé
       }
     }
   }
 
-  if(userExists){
+  // Affiche un message en fonction du résultat
+  if (userExists) {
     connectMessage.textContent = "Connexion réussie ✅";
     connectMessage.style.color = "green";
-    window.location.href="/profil.html"
+    window.location.href = "/profil.html"; // Redirige vers la page de profil
   } else {
     connectMessage.textContent = "Login ou mot de passe incorrect ❌";
     connectMessage.style.color = "red";
   }
-
 });
