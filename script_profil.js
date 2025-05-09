@@ -29,3 +29,4 @@ if (nameUser && pwdUser) {
     "Aucune information d'utilisateur trouvée dans le sessionStorage."
   );
 }
+
