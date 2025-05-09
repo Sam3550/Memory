@@ -37,18 +37,23 @@
         <!-- Image de profil par défaut -->
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-      
             <path
               d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z"
             />
           </svg>
         </div>
-
       </div>
 
-      <div id="user-info-container"></div>
-
+      <div id="userConnected__info_container"></div>
+      <div id="userConnected__select_container">
+        <label for="choix-memory">Choisissez un Memory</label>
+        <select id="choix-memory" name="fruit">
+          <option value="personnages">Personnages</option>
+          <option value="fruits">Fruits</option>
+        </select>
+      </div>
+      <button type="submit">Enregistrez Option</button>
     </main>
-    <script  type="module" src="script_profil.js"></script>
+    <script type="module" src="script_profil.js"></script>
   </body>
 </html>

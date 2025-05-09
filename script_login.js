@@ -9,6 +9,7 @@ connectForm.addEventListener("submit", (connect) => {
   // Récupère les valeurs saisies par l'utilisateur
   const connectMail = document.getElementById("loginConnect").value;
   const connectPwd = document.getElementById("passwordConnect").value;
+  let connectName = null
 
   let userExists = false; // Indique si un utilisateur correspondant est trouvé
 
@@ -17,7 +18,7 @@ connectForm.addEventListener("submit", (connect) => {
     const key = localStorage.key(i); // Récupère la clé
     if (key.startsWith("user")) { // Ne prend en compte que les clés qui commencent par "user"
       const userData = JSON.parse(localStorage.getItem(key)); // Récupère les données utilisateur
-
+      connectName = userData.name;
       // Vérifie si l'email et le mot de passe correspondent
       if (userData.email === connectMail && userData.password === connectPwd) {
         userExists = true;
@@ -26,8 +27,12 @@ connectForm.addEventListener("submit", (connect) => {
     }
   }
 
-  // Affiche un message en fonction du résultat
+  // Vérifier que l'user existe et mettre les informations dans la session storage
   if (userExists) {
+    sessionStorage.setItem("emailConnected",connectMail);
+    sessionStorage.setItem("passwordConnect",connectPwd);
+    sessionStorage.setItem("nameConnected",connectName);
+
     connectMessage.textContent = "Connexion réussie ✅";
     connectMessage.style.color = "green";
     window.location.href = "/profil.html"; // Redirige vers la page de profil

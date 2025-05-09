@@ -118,7 +118,6 @@ forcePassword.addEventListener("input", () => {
   console.log(strength);
 
   // Change dynamiquement la couleur de la barre selon la force
-  // ATTENTION : Ces <style> s'ajoutent à chaque frappe → risque de surcharge
   if (strength < 50) {
     const styleRed = document.createElement("style");
     styleRed.innerHTML =

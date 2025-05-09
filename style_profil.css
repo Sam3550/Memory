@@ -23,3 +23,8 @@ body{
     color: rgb(255, 255, 255);
 }
 
+#userConnected__info_container{
+  color: black;
+  height: 20vh;
+  width: 100%;
+};
